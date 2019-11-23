@@ -26,7 +26,7 @@ import java.util.concurrent.CountDownLatch;
 public class TokenProvider {
 
     public static void main(String[] args) throws Exception {
-        new EmbeddedZooKeeper(2181, false).start();
+        //new EmbeddedZooKeeper(2181, false).start();  本地测试可以注释掉?
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/token-provider.xml");
         context.start();
