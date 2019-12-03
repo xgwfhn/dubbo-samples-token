@@ -24,14 +24,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder/>
+<!--  <dubbo:provider token="xgwfhn" />  --> 
+   <dubbo:application name="token-provider"/>
 
-    <dubbo:application name="token-provider"/>
-
-    <dubbo:registry address="zookeeper://${zookeeper.address:182.61.47.61}:2181"/>
+    <dubbo:registry address="zookeeper://${zookeeper.address:127.0.0.1}:2181"/>
 
     <dubbo:protocol name="dubbo" port="20880" />
 
     <bean id="demoService" class="org.apache.dubbo.samples.token.impl.DemoServiceImpl"/>
-    <dubbo:service interface="org.apache.dubbo.samples.token.api.DemoService" ref="demoService"  token="xgwfhn"/>
+  <!--   服务级别设置token  相当密码 -->
+    <dubbo:service interface="org.apache.dubbo.samples.token.api.DemoService" ref="demoService"  token="12345" />
 
 </beans>

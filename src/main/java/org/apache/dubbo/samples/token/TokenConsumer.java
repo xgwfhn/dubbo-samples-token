@@ -19,6 +19,7 @@
 
 package org.apache.dubbo.samples.token;
 
+import org.apache.dubbo.rpc.RpcContext;
 import org.apache.dubbo.samples.token.api.DemoService;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -32,7 +33,9 @@ public class TokenConsumer {
         DemoService demoService = context.getBean("demoService", DemoService.class);
 
         int id = 1;
+       // RpcContext.getContext().setAttachment("token","12345");//设置token密码
         String result = demoService.sayHello(id);
+        System.out.println(result);
        
     }
 }

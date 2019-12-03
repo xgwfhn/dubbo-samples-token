@@ -25,7 +25,7 @@ import org.apache.dubbo.samples.token.api.DemoService;
 public class DemoServiceImpl implements DemoService {
 
     public String sayHello(int id) {
-      
+       
         return "demo" + id;
     }
 }
